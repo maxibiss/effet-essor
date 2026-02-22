@@ -220,6 +220,17 @@ body {
   margin: 0;
 }
 
+.card-author {
+  font-family: var(--font-family);
+  font-size: clamp(0.9rem, 4.5cqw, 1.2rem);
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-top: auto;
+  /* Pushes it to the bottom of the flex container */
+  padding-top: 1rem;
+  letter-spacing: 1px;
+}
+
 /* Animations */
 @keyframes float {
   0% {
@@ -257,4 +268,50 @@ body {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+/* Share Button */
+.share-button {
+  position: absolute;
+  top: 6cqw;
+  right: 6cqw;
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  color: #e2d9c9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 30;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.share-button:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.05);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.share-button:active {
+  transform: scale(0.95);
+}
+
+.share-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }
