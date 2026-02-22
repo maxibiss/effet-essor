@@ -1,9 +1,29 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import Papa from 'papaparse';
+import csvRaw from './assets/card_messages.csv?raw';
 
 const showVideo = ref(false);
 const showOverlay = ref(false);
 const videoRef = ref(null);
+
+const currentTitle = ref("Titre de la carte");
+const currentDesc = ref("description de la carte du jour");
+
+onMounted(() => {
+  const parsed = Papa.parse(csvRaw, {
+    header: true,
+    skipEmptyLines: true,
+  });
+  
+  const rows = parsed.data;
+  if (rows && rows.length > 0) {
+    // Select a random row from the CSV
+    const randomRow = rows[Math.floor(Math.random() * rows.length)];
+    if (randomRow['Thème']) currentTitle.value = randomRow['Thème'];
+    if (randomRow['Carte']) currentDesc.value = randomRow['Carte'];
+  }
+});
 
 const playVideo = () => {
   showVideo.value = true;
@@ -43,10 +63,10 @@ const handleTimeUpdate = (event) => {
             <transition name="fade">
               <div v-if="showOverlay" class="card-overlay">
                 <div class="overlay-top-section">
-                  <h2 class="card-title">Titre de la carte</h2>
+                  <h2 class="card-title">{{ currentTitle }}</h2>
                 </div>
                 <div class="overlay-bottom-section">
-                  <p class="card-desc">description de la carte du jour</p>
+                  <p class="card-desc">{{ currentDesc }}</p>
                 </div>
               </div>
             </transition>

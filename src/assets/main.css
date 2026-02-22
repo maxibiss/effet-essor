@@ -1,15 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* Base configuration */
 :root {
   --primary: #9b51e0;
   --primary-hover: #bb6bff;
-  --bg-dark: #0f0c1b;
+  --bg-dark: rgba(24, 23, 27, 1);
   --text-main: #f0f0f0;
   --text-muted: #a0a0a0;
   --overlay-bg: rgba(0, 0, 0, 0.6);
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --font-medieval: 'Cinzel', serif;
+  --font-serif: 'Noto Serif', serif;
 }
 
 body {
@@ -32,7 +33,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: radial-gradient(circle at top center, #261942 0%, var(--bg-dark) 100%);
+  background-color: var(--bg-dark);
 }
 
 .page-header {
@@ -41,21 +42,21 @@ body {
 }
 
 .page-title {
+  font-family: var(--font-serif);
   font-size: clamp(2.5rem, 8vw, 4rem);
   font-weight: 800;
   margin: 0 0 0.5rem 0;
   letter-spacing: -2px;
-  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #e2d9c9;
   animation: float 6s ease-in-out infinite;
 }
 
 .page-subtitle {
+  font-family: var(--font-serif);
   font-size: clamp(1rem, 3vw, 1.25rem);
   color: var(--text-muted);
-  font-weight: 300;
+  font-style: italic;
+  font-weight: 400;
   margin: 0;
 }
 
@@ -94,15 +95,15 @@ body {
 }
 
 .primary-button {
-  background: linear-gradient(135deg, var(--primary) 0%, #682ece 100%);
-  color: white;
+  background: linear-gradient(135deg, #D5C2AF 0%, #C0A388 100%);
+  color: #1a1a1a;
   border: none;
   padding: 1rem 2.5rem;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0 10px 20px rgba(155, 81, 224, 0.3);
+  box-shadow: 0 10px 20px rgba(192, 163, 136, 0.3);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -110,13 +111,13 @@ body {
 
 .primary-button:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 15px 25px rgba(187, 107, 255, 0.4);
-  background: linear-gradient(135deg, var(--primary-hover) 0%, #7d3fed 100%);
+  box-shadow: 0 15px 25px rgba(192, 163, 136, 0.45);
+  background: linear-gradient(135deg, #E6D8CA 0%, #CDB49D 100%);
 }
 
 .primary-button:active {
   transform: translateY(1px);
-  box-shadow: 0 5px 10px rgba(155, 81, 224, 0.3);
+  box-shadow: 0 5px 10px rgba(192, 163, 136, 0.25);
 }
 
 /* Video Section (embedded mode) */
@@ -181,8 +182,8 @@ body {
   justify-content: center;
   /* Center horizontally */
   text-align: center;
-  padding: 0 8cqw;
-  /* Horizontal padding */
+  padding: 4cqw 8cqw 0;
+  /* Added top padding */
   box-sizing: border-box;
 }
 
@@ -202,8 +203,8 @@ body {
 
 .card-title {
   font-family: var(--font-medieval);
-  font-size: clamp(1rem, 7cqw, 2rem);
-  /* Adjusted font clamp for smaller card */
+  font-size: clamp(0.9rem, 5.5cqw, 1.7rem);
+  /* Reduced font clamp for smaller title */
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -213,8 +214,8 @@ body {
 .card-desc {
   font-family: var(--font-medieval);
   /* Match title font */
-  font-size: clamp(0.9rem, 4.5cqw, 1.4rem);
-  /* Increased size slightly */
+  font-size: clamp(1rem, 5.5cqw, 1.8rem);
+  /* Increased size */
   line-height: 1.5;
   margin: 0;
 }
