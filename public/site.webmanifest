@@ -1,0 +1,20 @@
+{
+    "name": "Effet Essor",
+    "short_name": "Effet Essor",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "theme_color": "#18171b",
+    "background_color": "#18171b",
+    "display": "standalone"
+}
