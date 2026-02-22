@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+
+/* Base configuration */
+:root {
+  --primary: #9b51e0;
+  --primary-hover: #bb6bff;
+  --bg-dark: #0f0c1b;
+  --text-main: #f0f0f0;
+  --text-muted: #a0a0a0;
+  --overlay-bg: rgba(0, 0, 0, 0.6);
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-medieval: 'Cinzel', serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  min-height: 100vh;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* App Structure */
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at top center, #261942 0%, var(--bg-dark) 100%);
+}
+
+.page-header {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.page-title {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -2px;
+  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: float 6s ease-in-out infinite;
+}
+
+.page-subtitle {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  color: var(--text-muted);
+  font-weight: 300;
+  margin: 0;
+}
+
+.content-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem 4rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.page-footer {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* Hero Section (now embedded) */
+.hero-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+  width: 100%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.primary-button {
+  background: linear-gradient(135deg, var(--primary) 0%, #682ece 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(155, 81, 224, 0.3);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.primary-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 25px rgba(187, 107, 255, 0.4);
+  background: linear-gradient(135deg, var(--primary-hover) 0%, #7d3fed 100%);
+}
+
+.primary-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 5px 10px rgba(155, 81, 224, 0.3);
+}
+
+/* Video Section (embedded mode) */
+.video-container {
+  width: 100%;
+  max-width: 340px;
+  /* Reduced to ~2/3 of previous size to fit the screen better */
+  display: flex;
+  justify-content: center;
+  background-color: var(--bg-dark);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1080 / 1920;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  container-type: inline-size;
+}
+
+.main-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  /* Prevents clicking on the video to pause it */
+}
+
+/* Card Overlay */
+.card-overlay {
+  position: absolute;
+  left: 19.73%;
+  /* 213.1 / 1080 */
+  top: 16.57%;
+  /* 318.2 / 1920 */
+  width: 66.00%;
+  /* Increased slightly from 65.19% to expand towards the right */
+  height: 59.13%;
+  /* Reduced height by ~4% (from 63.13) */
+  background: linear-gradient(to bottom, rgba(24, 23, 27, 1) 0%, rgba(24, 23, 27, 1) 30%, rgba(24, 23, 27, 0.4) 45%, rgba(24, 23, 27, 0) 65%);
+  color: #e2d9c9;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 8px;
+  /* Slightly smaller radius for smaller box */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  z-index: 20;
+}
+
+.overlay-top-section {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Center horizontally */
+  text-align: center;
+  padding: 0 8cqw;
+  /* Horizontal padding */
+  box-sizing: border-box;
+}
+
+.overlay-bottom-section {
+  height: 70%;
+  width: 100%;
+  padding: 8cqw;
+  /* Padding for description */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* Center horizontally */
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.card-title {
+  font-family: var(--font-medieval);
+  font-size: clamp(1rem, 7cqw, 2rem);
+  /* Adjusted font clamp for smaller card */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.card-desc {
+  font-family: var(--font-medieval);
+  /* Match title font */
+  font-size: clamp(0.9rem, 4.5cqw, 1.4rem);
+  /* Increased size slightly */
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
